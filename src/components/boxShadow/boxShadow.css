@@ -9,6 +9,7 @@ main {
   
   .left {
     background-color: #444;
+    padding: 1rem;
   }
   .left ul {
     display: grid;
@@ -27,18 +28,15 @@ main {
   
   /* code */
   .code {
-    margin: 1rem 0;
-  }
-  .code pre {
-    background-color: #222;
-    padding: 0;
-    height: 0;
-    overflow: hidden;
-  }
-  .code pre {
-    background-color: #222;
     padding: 1rem;
-    height: 7rem;
+  }
+  .code pre {
+    background-color: #222222;
+    padding: 0;
+  }
+  .code pre {
+    background-color: #494949;
+    padding: 1rem;
   }
   
   .right {

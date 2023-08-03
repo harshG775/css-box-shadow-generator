@@ -4,7 +4,7 @@ import { useState } from "react"
 
 export default function BoxShadow() {
 	const [bgColor,setBgColor]=useState("#14cc9e")
-	const [border_radius,setBorder_radius]=useState(16)
+	const [border_radius,setBorder_radius]=useState(1)
 
 	const [shadowColor,setShadowColor]=useState("#505050")
 	
@@ -41,7 +41,7 @@ export default function BoxShadow() {
 			value:border_radius,
 			setValue:setBorder_radius,
 			min:0,
-			max:100,
+			max:10,
 		},
 		{
 			labelText:"shadow color",
@@ -131,16 +131,13 @@ export default function BoxShadow() {
                         />
                     ))}
                 </ul>
-                <div className='code'>
-                    <pre>{code}</pre>
-                </div>
             </div>
             <div className='right'>
                 <div
                     className='box'
                     style={{
                         backgroundColor: `${bgColor}`,
-                        borderRadius: `${border_radius}%`,
+                        borderRadius: `${border_radius}rem`,
                         boxShadow: `
 							${isInset ? "inset" : ""}
 							${offsetH}px
@@ -154,6 +151,9 @@ export default function BoxShadow() {
                     }}
                 ></div>
             </div>
+			<div className='code'>
+				<pre>{code}</pre>
+			</div>
         </main>
     );
 }
