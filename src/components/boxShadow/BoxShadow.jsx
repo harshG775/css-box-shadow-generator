@@ -140,7 +140,7 @@ export default function BoxShadow() {
                     className='box'
                     style={{
                         backgroundColor: `${bgColor}`,
-                        borderRadius: `${border_radius}px`,
+                        borderRadius: `${border_radius}%`,
                         boxShadow: `
 							${isInset ? "inset" : ""}
 							${offsetH}px

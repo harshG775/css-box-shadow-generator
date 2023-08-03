@@ -1,4 +1,4 @@
-
+import "./inputControll.css"
 export default function InputControl(prop) {
 	const {type,id,labelText,value ,setValue,min,max,showCodes} =prop;
 		return (
