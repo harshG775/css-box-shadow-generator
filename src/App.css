@@ -1,42 +1,121 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+/* //main */
+main {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.left {
+  background-color: #444;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.left ul {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 1rem;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.left ul li{
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+input[type="text"] {
+  width: 4rem;
 }
 
-.card {
-  padding: 2em;
+
+/* code */
+.code {
+  margin: 1rem 0;
+}
+.code pre {
+  background-color: #222;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+}
+.code pre {
+  background-color: #222;
+  padding: 1rem;
+  height: 7rem;
 }
 
-.read-the-docs {
-  color: #888;
+.right {
+  height: 100%;
+  min-height: 400px;
+  background-color: #eee;
+  display: grid;
+  place-content: center;
+}
+
+
+
+
+
+
+
+
+/*  */
+input.slider[type="range"] {
+  all: unset;
+}
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 25rem;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #14cc9e;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: 0px; /* Centers thumb on the track */
+  background-color: #e2e2ee;
+  border-radius: 0rem;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  outline: 3px solid #e2e2ee;
+  outline-offset: 0.125rem;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: #14cc9e;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  background-color: #e2e2ee;
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 0rem;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb{
+  outline: 3px solid #e2e2ee;
+  outline-offset: 0.125rem;
 }
