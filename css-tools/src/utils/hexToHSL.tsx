@@ -21,7 +21,7 @@ export default function hexToHSL(hex: string): HSL {
     // Convert RGB to HSL
     const max = Math.max(r, g, b);
     const min = Math.min(r, g, b);
-    let h,
+    let h = 0,
         s,
         l = (max + min) / 2;
 
