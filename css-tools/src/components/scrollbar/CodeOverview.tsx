@@ -1,3 +1,4 @@
+import hexToRGB from "@/utils/hexToRGB";
 import { useEffect, useRef } from "react";
 
 type Type_props = {
@@ -8,6 +9,7 @@ export default function CodeOverview(props:Type_props) {
     const { watch } = props;
     useEffect(() => {
         if (scrollBarRef.current) {
+            // @ts-ignore
             scrollBarRef.current.style = `
                 --sb-thumb-color: ${watch("thumbColor")};
                 --sb-track-color: ${watch("trackColor")};

@@ -48,6 +48,8 @@
     background: var(--sb-thumb-color);
     border-radius: var(--sb-track-thumb);
 }
+/* .scroll-bar::-webkit-scrollbar-thumb:hover {
+} */
 
 @supports not selector(::-webkit-scrollbar) {
     .scroll-bar {

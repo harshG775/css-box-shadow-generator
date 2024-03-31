@@ -1,92 +1,99 @@
 type Type_props = {
     register: any;
     getValues: any;
-    setValue: any;
 };
-
 export default function ControlsForm(props: Type_props) {
-    const { register, getValues, setValue} = props;
-
-
-    const handleMinus = (name: string) => {
-        if (getValues(name) <= 0) {
-            return
-        }
-        setValue(name, getValues(name) - 1);
-    }
-    const handlePlus = (name: string) => {
-        if (getValues(name) >= 50) {
-            return
-        }
-        setValue(name, getValues(name) + 1);
-    }
-    
+    const { register, getValues } = props;
     return (
         <section>
             <h1>Settings</h1>
-            <form onSubmit={(e)=>e.preventDefault()}>
-                <ul className="[&>li]:grid [&>li]:grid-cols-[1fr_auto]">
+            <form onSubmit={(e) => e.preventDefault()}>
+                <ul className="[&>li]:grid [&>li]:grid-cols-2 space-y-2">
                     <li>
                         <label htmlFor="thumbColor">Thumb Color</label>
-                        <input
-                            id="thumbColor"
-                            type="color"
-                            {...register("thumbColor")}
-                        />
+                        <div className="flex gap-2 items-center w-full relative">
+                            <input
+                                className="w-full h-8 pl-2 pr-10 rounded-md "
+                                id="thumbColor"
+                                type="text"
+                                {...register("thumbColor")}
+                            />
+                            <input
+                                className="absolute right-0 outline-none h-8 w-8"
+                                id="thumbColor"
+                                type="color"
+                                {...register("thumbColor")}
+                            />
+                        </div>
                     </li>
                     <li>
                         <label htmlFor="trackColor">Track Color</label>
-                        <input
-                            id="trackColor"
-                            type="color"
-                            {...register("trackColor")}
-                        />
+                        <div className="flex gap-2 items-center w-full relative">
+                            <input
+                                className="w-full h-8 pl-2 pr-10 rounded-md "
+                                id="trackColor"
+                                type="text"
+                                {...register("trackColor")}
+                            />
+                            <input
+                                className="absolute right-0 outline-none h-8 w-8"
+                                id="trackColor"
+                                type="color"
+                                {...register("trackColor")}
+                            />
+                        </div>
                     </li>
-                    
+
                     <li>
                         <label htmlFor="scrollbarWidth">Scrollbar Width</label>
-                        <div className="flex justify-center w-full">
-                            <button onClick={() => handleMinus("scrollbarWidth")}>-</button>
+                        <div className="flex gap-2 items-center w-full">
                             <input
-                                className="w-10 h-10 p-2 rounded-md"
+                                className="w-full"
                                 id="scrollbarWidth"
-                                type="text"
+                                type="range"
                                 {...register("scrollbarWidth")}
-                                readOnly
+                                min={1}
+                                max={50}
                             />
-                            <button onClick={() => handlePlus("scrollbarWidth")}>+</button>
+                            <div className="w-8 h-8 border rounded-sm grid place-content-center">
+                                {getValues("scrollbarWidth")}
+                            </div>
                         </div>
                     </li>
                     <li>
                         <label htmlFor="scrollbarBorderRadius">
                             Scrollbar Border Radius
                         </label>
-                        <div className="flex justify-center w-full">
-                            <button onClick={() => handleMinus("scrollbarBorderRadius")}>-</button>
+                        <div className="flex gap-2 items-center w-full">
                             <input
-                                className="w-10 h-10 p-2 rounded-md"
+                                className="w-full"
                                 id="scrollbarBorderRadius"
-                                type="text"
+                                type="range"
                                 {...register("scrollbarBorderRadius")}
-                                readOnly
+                                min={0}
+                                max={25}
                             />
-                            <button onClick={() => handlePlus("scrollbarBorderRadius")}>+</button>
+                            <div className="w-8 h-8 border rounded-sm grid place-content-center">
+                                {getValues("scrollbarBorderRadius")}
+                            </div>
                         </div>
                     </li>
                     <li>
                         <label htmlFor="thumbBorderWidth">
                             Thumb Border Width
                         </label>
-                        <div className="flex justify-center w-full">
-                            <button onClick={() => handleMinus("thumbBorderWidth")}>-</button>
+                        <div className="flex gap-2 items-center w-full">
                             <input
-                                className="w-10 h-10 p-2 rounded-md"
+                                className="w-full"
                                 id="thumbBorderWidth"
-                                type="text"
+                                type="range"
                                 {...register("thumbBorderWidth")}
-                                readOnly
+                                min={0}
+                                max={25}
                             />
-                            <button onClick={() => handlePlus("thumbBorderWidth")}>+</button>
+                            <div className="w-8 h-8 border rounded-sm grid place-content-center">
+                                {getValues("thumbBorderWidth")}
+                            </div>
                         </div>
                     </li>
                     {/* <li>
