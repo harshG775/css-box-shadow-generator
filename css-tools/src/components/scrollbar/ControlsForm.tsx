@@ -1,8 +1,26 @@
 type Type_props = {
     register: any;
+    getValues: any;
+    setValue: any;
 };
+
 export default function ControlsForm(props: Type_props) {
-    const { register } = props;
+    const { register, getValues, setValue} = props;
+
+
+    const handleMinus = (name: string) => {
+        if (getValues(name) <= 0) {
+            return
+        }
+        setValue(name, getValues(name) - 1);
+    }
+    const handlePlus = (name: string) => {
+        if (getValues(name) >= 50) {
+            return
+        }
+        setValue(name, getValues(name) + 1);
+    }
+    
     return (
         <section>
             <h1>Settings</h1>
@@ -28,14 +46,15 @@ export default function ControlsForm(props: Type_props) {
                     <li>
                         <label htmlFor="scrollbarWidth">Scrollbar Width</label>
                         <div className="flex justify-center w-full">
-                            <button>-</button>
+                            <button onClick={() => handleMinus("scrollbarWidth")}>-</button>
                             <input
                                 className="w-10 h-10 p-2 rounded-md"
                                 id="scrollbarWidth"
                                 type="text"
                                 {...register("scrollbarWidth")}
+                                readOnly
                             />
-                            <button>+</button>
+                            <button onClick={() => handlePlus("scrollbarWidth")}>+</button>
                         </div>
                     </li>
                     <li>
@@ -43,14 +62,15 @@ export default function ControlsForm(props: Type_props) {
                             Scrollbar Border Radius
                         </label>
                         <div className="flex justify-center w-full">
-                            <button>-</button>
+                            <button onClick={() => handleMinus("scrollbarBorderRadius")}>-</button>
                             <input
                                 className="w-10 h-10 p-2 rounded-md"
                                 id="scrollbarBorderRadius"
                                 type="text"
                                 {...register("scrollbarBorderRadius")}
+                                readOnly
                             />
-                            <button>+</button>
+                            <button onClick={() => handlePlus("scrollbarBorderRadius")}>+</button>
                         </div>
                     </li>
                     <li>
@@ -58,14 +78,15 @@ export default function ControlsForm(props: Type_props) {
                             Thumb Border Width
                         </label>
                         <div className="flex justify-center w-full">
-                            <button>-</button>
+                            <button onClick={() => handleMinus("thumbBorderWidth")}>-</button>
                             <input
                                 className="w-10 h-10 p-2 rounded-md"
                                 id="thumbBorderWidth"
                                 type="text"
                                 {...register("thumbBorderWidth")}
+                                readOnly
                             />
-                            <button>+</button>
+                            <button onClick={() => handlePlus("thumbBorderWidth")}>+</button>
                         </div>
                     </li>
                     {/* <li>
