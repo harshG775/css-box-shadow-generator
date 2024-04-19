@@ -16,9 +16,10 @@ export default function CodeOverview(props:Type_props) {
                 --sb-width: ${watch("scrollbarWidth")}px;
                 --sb-track-border: ${watch("scrollbarBorderRadius")}px;
                 --sb-track-thumb: ${watch("thumbBorderWidth")}px;
+                --sb-width-type: ${watch("widthType")?"thin":"auto"};
             `
         }
-    }, [ watch("thumbColor"), watch("trackColor"), watch("scrollbarWidth"), watch("scrollbarBorderRadius"), watch("thumbBorderWidth")]);
+    }, [ watch("thumbColor"), watch("trackColor"), watch("scrollbarWidth"), watch("scrollbarBorderRadius"), watch("thumbBorderWidth"),watch("widthType")]);
     return (
         <section>
             overview
@@ -34,26 +35,33 @@ export default function CodeOverview(props:Type_props) {
     --sb-width: ${watch("scrollbarWidth")}px;
     --sb-track-border: ${watch("scrollbarBorderRadius")}px;
     --sb-track-thumb: ${watch("thumbBorderWidth")}px;
+    ${watch("widthType")?"--scrollbar-width: thin;":""}
+    
 }
 
-.scroll-bar::-webkit-scrollbar {
-    width: var(--sb-width);
-}
 
-.scroll-bar::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-    border-radius: var(--sb-track-border);
-}
-
-.scroll-bar::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: var(--sb-track-thumb);
-}
-
-@supports not selector(::-webkit-scrollbar) {
+@supports (scrollbar-width: auto) {
     .scroll-bar {
         scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+        scrollbar-width: var(--sb-width-type);
     }
+}
+/* none firefox */
+@supports selector(::-webkit-scrollbar) {
+    .scroll-bar::-webkit-scrollbar {
+        width: var(--sb-width);
+    }
+    
+    .scroll-bar::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: var(--sb-track-border);
+    }
+    
+    .scroll-bar::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: var(--sb-track-thumb);
+    }
+
 }
 `}
                 </pre>

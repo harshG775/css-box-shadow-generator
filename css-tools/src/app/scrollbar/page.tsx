@@ -24,13 +24,14 @@ export default function page() {
             scrollbarBorderRadius: 3,
             thumbBorderWidth: 3,
             // thumbBorderColor: "#000000",
+            widthType: false,
         }
     })
     return (
         <>
             <h1>Scrollbar</h1>
             <div className="grid lg:grid-cols-2 gap-4 p-4 max-w-7xl mx-auto">
-                <ControlsForm register={register} getValues={getValues}/>
+                <ControlsForm register={register} getValues={getValues} watch={watch}/>
                 <CodeOverview watch={watch}/>
             </div>
         </>
