@@ -1,4 +1,5 @@
 "use client";
+
 import CodeOverview from "@/components/scrollbar/CodeOverview";
 import ControlsForm from "@/components/scrollbar/ControlsForm";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,8 +19,8 @@ export default function page() {
     const {register,watch,getValues,setValue} = useForm({
         resolver: zodResolver(FormSchema),
         defaultValues: {
-            thumbColor: "#8232c3",
-            trackColor: "#444743",
+            thumbColor: "hsl(0, 0%, 0%)",
+            trackColor: "hsl(0, 0%, 100%)",
             scrollbarWidth: 10,
             scrollbarBorderRadius: 3,
             thumbBorderWidth: 3,
