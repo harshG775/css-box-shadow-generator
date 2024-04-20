@@ -2,7 +2,6 @@
 
 @supports (scrollbar-width: auto) {
     .scroll-bar {
-        scrollbar-color: hsl(var(--sb-thumb-color)) hsl(var(--sb-track-color));
         scrollbar-width: var(--sb-width-type);
     }
 }
